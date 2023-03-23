@@ -19,6 +19,7 @@ function Article() {
     fetch(`/articles/${id}`).then((r) => {
       if (r.ok) {
         r.json().then((article) =>
+       
           setState({ article, error: null, status: "resolved" })
         );
       } else {
@@ -28,7 +29,7 @@ function Article() {
       }
     });
   }, [id]);
-
+ 
   if (status === "pending") return <h1>Loading...</h1>;
 
   if (status === "rejected") {
